@@ -12,7 +12,7 @@ Firstly you need to make up an instance of the TokenManager Class.\
 This Class will be used to pass the retreived Token to other methods later
 ~~~
 ttm_token = TelstraTrackMonitorAPI.TokenManager(
-	server='https://XXXXXXXX.simprocloud.com'
+	server='https://tapi.telstra.com'
 	client_id='XXXXXXXXXXXXXXXXXXXXX'
 	client_secret='XXXXXXXXXXXXXXXXXXXXX'
 	save_location='ttm_token.json'
