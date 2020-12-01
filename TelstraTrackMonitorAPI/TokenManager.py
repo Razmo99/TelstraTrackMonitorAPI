@@ -67,7 +67,7 @@ class TokenManager(object):
                 auth_file.write(auth_json)
             logger.info('Saved token to: '+ self.save_location)
         except FileNotFoundError:
-            logger.info(+self.save_location' not found.')
+            logger.info(self.save_location+' not found.')
 
     def load_token(self):
         """reads the token information from a file for later use"""
@@ -76,7 +76,7 @@ class TokenManager(object):
             with open(self.save_location,'r') as saved_auth:
                 cache_auth=saved_auth.read()
         except FileNotFoundError:
-            logger.info('token.json not found.')
+            logger.info(self.save_location+' not found.')
         else:
             #Convert the input to a dictionary
             auth_dict=json.loads(cache_auth)
@@ -84,7 +84,7 @@ class TokenManager(object):
             self.access_token=auth_dict['access_token']
             self.expires=datetime.datetime.fromisoformat(auth_dict['expires'])
             self.expired=auth_dict['expired']
-            logger.info('api.json found loading data')
+            logger.info(self.save_location+' found loading data')
 
     def update_token(self):
         """checks if the token is expired as requests another token if it is."""
