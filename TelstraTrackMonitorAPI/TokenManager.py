@@ -20,7 +20,7 @@ class TokenManager(object):
 
     def __init__(self,server,client_id,client_secret,save_location=None):
         if save_location is None:
-            save_location='simpro_token.json'
+            save_location='ttm_token.json'
         self.save_location=save_location
         self.access_token=''
         self.expired=True
@@ -67,7 +67,7 @@ class TokenManager(object):
                 auth_file.write(auth_json)
             logger.info('Saved token to: '+ self.save_location)
         except FileNotFoundError:
-            logger.info('token.json not found.')
+            logger.info(+self.save_location' not found.')
 
     def load_token(self):
         """reads the token information from a file for later use"""
