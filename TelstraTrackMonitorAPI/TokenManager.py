@@ -19,7 +19,7 @@ class datetime_encoder(JSONEncoder):
 class TokenManager(object):
 
     def __init__(self,server,client_id,client_secret,save_location=None):
-        self.save_location='ttm_token.json' if save_location is None else save_location
+        self.save_location='ttm_token.json' if not save_location else save_location
         self.access_token=''
         self.expired=True
         self.expires=None
