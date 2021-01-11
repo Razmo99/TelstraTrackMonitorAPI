@@ -37,7 +37,7 @@ class TokenManager(object):
         'scope':'LOT_DEVICES_READ'}
         payload['client_id']=self.client_id
         payload['client_secret']=self.client_secret
-        #Execute the request and save the resultss      
+        #Execute the request and save the results     
         with OAuth2(self.server) as oauth2:
             token=oauth2.post(payload)
         #Convert output to json dict
