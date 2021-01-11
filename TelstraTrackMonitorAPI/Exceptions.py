@@ -11,7 +11,7 @@ class TTMErrorHandler(object):
                 raise OAuthV2InvalidAccessToken()
             elif self.fault['fault']['detail']['errorcode']=='keymanagement.service.invalid_access_token':
                 raise KeyManagementInvalidAccessToken()
-            #Catch for undefiend Faults
+            #Catch for undefined Faults
             else:
                 raise UndefinedFaultStringError(
                     self.fault,
@@ -19,7 +19,7 @@ class TTMErrorHandler(object):
         elif isinstance(self.fault,dict) and self.fault.get('error'):
             if self.fault['error'] == 'invalid_client':
                 raise OAuth2InvalidClientError()
-            #Catch for undefiend Faults
+            #Catch for undefined Faults
             else:
                 raise UndefinedFaultStringError(
                     self.fault,
@@ -27,7 +27,7 @@ class TTMErrorHandler(object):
         elif isinstance(self.fault,dict) and self.fault.get('message'):
             if 'The query specified in the URI is not valid.' in self.fault['message']:
                 raise ParameterSyntaxError(self.fault['message'])
-            #Catch for undefiend Faults
+            #Catch for undefined Faults
             else:
                 raise UndefinedMessageError(self.fault['message'])
         else:
