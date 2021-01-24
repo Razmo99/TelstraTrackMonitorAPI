@@ -97,7 +97,7 @@ class TokenManager(object):
                 #Set the token to expired
                 self.expired=True
                 result = False
-        #If the token isnt expired read out the delta till expiration
+        #If the token isn't expired read out the delta till expiration
         elif expires_valid and not self.expired:
                 time_delta=(self.expires-time_now).seconds
                 logger.info("Auth token not expired; Seconds left: "+str(time_delta))
